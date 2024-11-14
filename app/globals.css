@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Contenedor de la cuadrícula */
+.grid-container {
+  display: flex;
+  justify-content: center; 
+}
+
+/* Ajusta el contenedor de las tarjetas */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Define el tamaño mínimo de la tarjeta */
+  gap: 1rem; /* Espacio entre tarjetas */
+  max-width: 1000px; /* Máximo ancho de la cuadrícula para evitar que se expanda */
+  width: 100%;
+  justify-content: center; /* Centra el contenido si hay solo una tarjeta */
+}
+
+/* Estilos para cada tarjeta de usuario */
+.user-card {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+/* Estilo para los nombres de usuario */
+.user-card h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+/* Estilo para el email y el nombre de usuario */
+.user-card p {
+  font-size: 0.9rem;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-card:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+/* Agrega estilos básicos para el input */
+input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+}
+
+/* Estilos del Navbar */
+.navbar {
+  display: flex;
+  color: black; 
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background-color: #333;  
+  flex-wrap: wrap; 
+}
+
+/* Estilos del input de búsqueda */
+.search-input {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  max-width: 250px;
+  flex-grow: 1;
+  margin-right: 16px;
+  min-width: 200px;
+}
+
+/* Estilos de enlaces de navegación */
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Diseño responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input {
+    width: 100%; 
+    margin-bottom: 12px;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: center;
+  }
+}
